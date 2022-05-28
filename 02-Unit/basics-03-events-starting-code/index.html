@@ -19,17 +19,39 @@
     <h2>Events in Action</h2>
     <button v-on:click="add">Add</button><!-- or add() both are Ok -->
     <button @click="subtract(5)">Subtract 5</button> <!-- Pass arguments -->
+    <p v-once>Starting result: {{ counter }}</p>
     <p>Result: {{ counter }}</p>
+
+
+    <!-- Inputs playground 
+   
     <div>
       <input type="text" @input="setName" />
       <p>Your Name: {{ name }}</p>
+    </div>-->
+    <h2> Name inputs</h2>
+    <!-- modify the event to cofirm with the Enter key: v-on:keyup.enter -->
+    <div>
+      <!-- <input type="text" @input="setName" v-on:keyup.enter="confirmName" /> -->
+      <!-- v-model is two way binding -->
+      <input type="text" v-model="name" />
+      <button @click="confirmName">Confirm</button>
+      <button @click="resetInput">Clear</button>
+      <p>Your Name: {{ confirmedName }}</p>
     </div>
 
-    <!-- Pass event and something else: -->
+
+    <!-- Event modifier in action, preventing the for from reload -->
+    <form v-on:submit.prevent="submitForm()">
+      <input type="text">
+      <button @click="signUp">Sign Up</button>
+    </form>
+
+    <!-- Pass event and something else:
     <div>
       <input type="text" @input="setNameArgs($event, 'Last Name')" />
       <p>Your Name: {{ nameArgs }}</p>
-    </div>
+    </div> -->
 
   </section>
 </body>

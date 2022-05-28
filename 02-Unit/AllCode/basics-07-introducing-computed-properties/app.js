@@ -11,7 +11,7 @@ const app = Vue.createApp({
       if (this.name === '') {
         return '';
       }
-      return this.name + ' ' + 'Schwarzmüller';
+      return this.name + ' ' + 'Kilishek';
     },
   },
   methods: {
@@ -20,7 +20,7 @@ const app = Vue.createApp({
       if (this.name === '') {
         return '';
       }
-      return this.name + ' ' + 'Schwarzmüller';
+      return this.name + ' ' + 'Kilishek';
     },
     setName(event) {
       this.name = event.target.value;
