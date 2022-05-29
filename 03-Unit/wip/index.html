@@ -23,10 +23,23 @@
     <p v-if="goals.length === 0">No goals have been added yet - please start adding some!</p>
     <ul v-else>
       <!-- <ul v-if="goals.length > 0"> -->
-      <li v-for="goal in goals">{{ goal }}</li>
+      <li v-for="(goal, index) in goals" :key="goal" @click="removeGoal(index)">
+        <p>{{ goal }} - {{ index }}</p>
+        <input type="text" @click.stop /> <!-- stops the input from triggering removeGoal() -->
+      </li>
     </ul>
 
-    <!-- 
+    <!--- Can be used with object and work with key value pairs
+    <ul>
+      <li v-for="value, key in {name: 'Dimm', age: 42}">{{ key }} - {{ value }}</li>
+    </ul> -->
+
+    <!--- Can loop thorugh array of numbers too:
+    <ul>
+      <li v-for="num in 10">{{ num }}</li>
+    </ul> -->
+
+    <!--  
       v-show at the same time operated "display: none" CSS property 
       Main use case: an element that changes visibility very often
 
