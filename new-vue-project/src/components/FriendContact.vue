@@ -47,7 +47,19 @@ export default {
     },
   },
   // props: ['name', 'phoneNumber', 'emailAddress', 'isFavorite'],
-  emits: ['toggle-favorite'],
+  emits: ['toggle-favorite'], // Simplified
+
+  // Emits with validation:
+  // emits: {
+  //   'toggle-favorite': (id) => {
+  //     if (id) {
+  //       return true;
+  //     }
+  //     console.warn('Id is missing!');
+  //     return false;
+  //   },
+  // },
+
   data() {
     return {
       detailsAreVisible: false,
