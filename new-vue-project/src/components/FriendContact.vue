@@ -17,6 +17,9 @@
         {{ emailAddress }}
       </li>
     </ul>
+    <button @click="$emit('delete', id)">
+      Delete
+    </button>
   </li>
 </template>
 
@@ -47,7 +50,7 @@ export default {
     },
   },
   // props: ['name', 'phoneNumber', 'emailAddress', 'isFavorite'],
-  emits: ['toggle-favorite'], // Simplified
+  emits: ['toggle-favorite', 'delete'], // Simplified
 
   // Emits with validation:
   // emits: {
