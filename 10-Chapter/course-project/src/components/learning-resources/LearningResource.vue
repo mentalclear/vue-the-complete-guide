@@ -3,7 +3,10 @@
     <BaseCard>
       <header>
         <h3>{{ title }}</h3>
-        <BaseButton mode="flat">
+        <BaseButton
+          mode="flat"
+          @click="deleteResource(id)"
+        >
           Delete
         </BaseButton>
       </header>
@@ -18,7 +21,8 @@
 <script>
 export default {
   name: ['LearningResource'],
-  props: ['title', 'description', 'link'],
+  inject: ['deleteResource'],
+  props: ['id', 'title', 'description', 'link'],
   data() {
     return {};
   },
