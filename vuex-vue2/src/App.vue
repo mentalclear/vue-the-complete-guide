@@ -7,21 +7,27 @@
         <another-result />
         <hr>
         <app-counter />
+        <another-counter />
+        <any-counter />
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import AnotherCounter from './components/AnotherCounter.vue';
 import TheCounter from './components/TheCounter.vue';
 import TheResult from './components/TheResult.vue';
 import AnotherResult from './components/AnotherResult.vue';
+import AnyCounter from './components/AnyCounter.vue';
 
 export default {
   components: {
     appCounter: TheCounter,
     appResult: TheResult,
     anotherResult: AnotherResult,
+    anotherCounter: AnotherCounter,
+    anyCounter: AnyCounter,
   },
 };
 </script>
