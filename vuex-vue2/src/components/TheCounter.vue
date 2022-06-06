@@ -20,10 +20,12 @@ export default {
   emits: ['updated'],
   methods: {
     increment() {
-      this.$emit('updated', 1);
+      // this.$emit('updated', 1);
+      this.$store.state.counter++;
     },
     decrement() {
-      this.$emit('updated', -1);
+      // this.$emit('updated', -1);
+      this.$store.state.counter--;
     },
   },
 };
