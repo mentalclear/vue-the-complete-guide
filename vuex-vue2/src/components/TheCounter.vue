@@ -12,6 +12,12 @@
     >
       Decrement
     </button>
+    <button
+      class="btn btn-primary"
+      @click="reset"
+    >
+      Reset
+    </button>
   </div>
 </template>
 
@@ -27,6 +33,15 @@ export default {
       // this.$emit('updated', -1);
       this.$store.state.counter--;
     },
+    reset() {
+      this.$store.state.counter = 0;
+    },
   },
 };
 </script>
+
+<style scoped>
+button {
+  margin: 5px;
+}
+</style>
