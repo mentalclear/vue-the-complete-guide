@@ -26,8 +26,13 @@ export default {
   methods: {
     addOne() {
       // this.$store.commit('increment');
-      // Object can be passed too:
-      this.$store.commit({
+      // Object can be passed too, commit is used for mutations
+      // this.$store.commit({
+      //   type: 'increase',
+      //   value: 10,
+      // });
+      // Where dispatch is used for actions
+      this.$store.dispatch({
         type: 'increase',
         value: 10,
       });

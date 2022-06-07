@@ -9,6 +9,19 @@ const store = createStore({
       counter: 0,
     };
   },
+  // Run mutations but asynchronously
+  actions: {
+    increment(context) {
+      setTimeout(() => {
+        context.commit('increment');
+      }, 2000);
+    },
+    increase(context, payload) {
+      console.log(context);
+      context.commit('increase', payload);
+    },
+  },
+  // Can only be synchronous
   mutations: {
     increment(state) {
       state.counter += 2;
