@@ -1,5 +1,8 @@
 <template>
-  <base-container title="Vuex">
+  <base-container
+    v-if="loggedIn"
+    title="Vuex"
+  >
     <the-counter />
     <favorite-value />
     <button @click="addOne">
@@ -7,13 +10,18 @@
     </button>
     <change-counter />
   </base-container>
+  <BaseContainer title="Auth">
+    <user-auth />
+  </BaseContainer>
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
 import BaseContainer from './components/BaseContainer.vue';
 import TheCounter from './components/TheCounter.vue';
 import ChangeCounter from './components/ChangeCounter.vue';
 import FavoriteValue from './components/FavoriteValue.vue';
+import UserAuth from './components/UserAuth.vue';
 
 export default {
   components: {
@@ -21,6 +29,11 @@ export default {
     TheCounter,
     ChangeCounter,
     FavoriteValue,
+    UserAuth,
+  },
+
+  computed: {
+    ...mapGetters(['loggedIn']),
   },
 
   methods: {
@@ -33,7 +46,7 @@ export default {
       // });
       // Where dispatch is used for actions
       this.$store.dispatch({
-        type: 'increase',
+        type: 'numbers/increase',
         value: 10,
       });
     },
