@@ -42,7 +42,7 @@ export default {
           return response;
         }).then((output) => {
           const results = [];
-          // With current Firebase data.data must be used.
+          // With current Firebase .data must be used.
           Object.keys(output.data).forEach((id) => {
             results.push({ id, name: output.data[id].name, rating: output.data[id].rating });
           });
