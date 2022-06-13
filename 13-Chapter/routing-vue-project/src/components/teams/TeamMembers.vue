@@ -9,6 +9,9 @@
         :role="member.role"
       />
     </ul>
+    <RouterLink to="/teams/t2">
+      Go to Team 2
+    </RouterLink>
   </section>
 </template>
 
@@ -20,25 +23,36 @@ export default {
     UserItem,
   },
   inject: ['users', 'teams'],
+  props: ['teamId'],
   data() {
     return {
       teamName: '',
       members: [],
     };
   },
+  watch: {
+    teamId(newId) {
+      this.loadTeamMembers(newId);
+    },
+  },
   created() {
-    const { teamId } = this.$route.params; // Getting teamId from the URL
-    // Finding the team with the teamId
-    const selectedTeam = this.teams.find((team) => team.id === teamId);
-    const { members } = selectedTeam; // Getting the members of the team
-    // iterate through the members and and add them to the members array
-    const slectedMembers = [];
-    members.forEach((member) => {
-      const selectedMember = this.users.find((user) => user.id === member);
-      slectedMembers.push(selectedMember);
-    });
-    this.members = slectedMembers;
-    this.teamName = selectedTeam.name;
+    this.loadTeamMembers(this.teamId);
+  },
+  methods: {
+    loadTeamMembers(teamId) {
+      // const { teamId } = route.params; // Getting teamId from the URL
+      // Finding the team with the teamId
+      const selectedTeam = this.teams.find((team) => team.id === teamId);
+      const { members } = selectedTeam; // Getting the members of the team
+      // iterate through the members and and add them to the members array
+      const slectedMembers = [];
+      members.forEach((member) => {
+        const selectedMember = this.users.find((user) => user.id === member);
+        slectedMembers.push(selectedMember);
+      });
+      this.members = slectedMembers;
+      this.teamName = selectedTeam.name;
+    },
   },
 };
 </script>
