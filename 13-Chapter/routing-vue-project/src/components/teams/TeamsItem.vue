@@ -4,13 +4,15 @@
     <div class="team-members">
       {{ memberCount }} Members
     </div>
-    <a href="#">View Members</a>
+    <RouterLink :to="`/teams/${id}`">
+      View Members
+    </RouterLink>
   </li>
 </template>
 
 <script>
 export default {
-  props: ['name', 'memberCount'],
+  props: ['id', 'name', 'memberCount'],
 };
 </script>
 
