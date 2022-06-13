@@ -1,7 +1,7 @@
 const app = Vue.createApp({
     data() {
         return {
-            name: 'Dmitrii',
+            name: 'Dimetrio',
             age: 42,
             imgUrl: 'https://avatars.githubusercontent.com/u/17571166?v=4',
         };
