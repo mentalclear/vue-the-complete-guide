@@ -3,6 +3,7 @@
   <main>
     <RouterView />
   </main>
+  <footer><RouterView name="footer" /></footer>
 </template>
 
 <script>

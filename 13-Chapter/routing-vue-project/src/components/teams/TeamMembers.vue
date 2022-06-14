@@ -23,6 +23,11 @@ export default {
     UserItem,
   },
   inject: ['users', 'teams'],
+  // Can be an alternative to watch:
+  // beforeRouteUpdate(to, from, next) {
+  //   console.log('TeamMembers component beforeRouteUpdate');
+  //   next();
+  // },
   props: ['teamId'],
   data() {
     return {
@@ -37,6 +42,7 @@ export default {
   },
   created() {
     this.loadTeamMembers(this.teamId);
+    console.log(this.$route.query);
   },
   methods: {
     loadTeamMembers(teamId) {

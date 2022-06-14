@@ -4,7 +4,8 @@
     <div class="team-members">
       {{ memberCount }} Members
     </div>
-    <RouterLink :to="`/teams/${id}`">
+    <!-- <RouterLink :to="`/teams/${id}`"> -->
+    <RouterLink :to="teamMembersLink">
       View Members
     </RouterLink>
   </li>
@@ -13,6 +14,17 @@
 <script>
 export default {
   props: ['id', 'name', 'memberCount'],
+  computed: {
+    teamMembersLink() {
+      // return { path: `/teams/${this.id}` };
+      // named route used here.
+      return {
+        name: 'team-members',
+        params: { teamId: this.id },
+        query: { sort: 'asc' },
+      };
+    },
+  },
 };
 </script>
 
